@@ -17,8 +17,7 @@
 A simple & customizable feedback widget for your Nuxt apps.
 
 [📖 Documentation](#table-of-contents) |
-[✨ Release Notes](/CHANGELOG.md) |
-[💻 Demo](https://oneminch.github.io/Nuxt-Feedback)
+[💻 Demo](https://nuxt-feedback.minch.dev)
 
 </div>
 
