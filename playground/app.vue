@@ -6,6 +6,15 @@ const toggleColorMode = () => {
     document.documentElement.classList.add("dark");
   }
 };
+
+useSeoMeta({
+  title: 'Nuxt Feedback - Playground',
+  ogTitle: 'Nuxt Feedback - Playground',
+  description: 'Demo of Nuxt Feedback Module.',
+  ogDescription: 'Demo of Nuxt Feedback Module.',
+  twitterCard: 'summary_large_image',
+  ogImage: "/cover.png"
+});
 </script>
 
 <template>
