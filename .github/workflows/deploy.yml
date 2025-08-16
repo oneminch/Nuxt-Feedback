@@ -54,8 +54,8 @@ jobs:
       - name: Build playground
         run: pnpm run build --preset github_pages
         working-directory: ./playground
-        env:
-          NUXT_APP_BASE_URL: /${{ github.event.repository.name }}/
+        # env:
+          # NUXT_APP_BASE_URL: /${{ github.event.repository.name }}/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
