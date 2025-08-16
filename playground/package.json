@@ -8,7 +8,7 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "@vueuse/core": "^13.3.0",
-    "nuxt": "^3.17.7"
+    "@vueuse/core": "^13.6.0",
+    "nuxt": "^4.0.3"
   }
 }
