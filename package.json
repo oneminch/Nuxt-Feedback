@@ -35,7 +35,7 @@
     "dist"
   ],
   "scripts": {
-    "build:css": "pnpm dlx @tailwindcss/cli -i ./src/runtime/assets/css/tailwind.css -o ./src/runtime/assets/css/output.css",
+    "build:css": "pnpm dlx @tailwindcss/cli -i ./src/runtime/assets/css/tailwind.css -o ./src/runtime/assets/css/output.css --minify",
     "prepack": "nuxt-module-build build",
     "dev": "nuxt dev playground",
     "dev:build": "nuxt build playground",
