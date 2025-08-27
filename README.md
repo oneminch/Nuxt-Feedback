@@ -454,6 +454,8 @@ export default defineEventHandler(async (event) => {
 
 ### Programmatic Control
 
+> This approach currently has some issues.
+
 ```vue
 <script setup lang="ts">
 const { openWidget } = useFeedbackWidget();
@@ -474,11 +476,12 @@ async function handleTaskComplete() {
 
 A list of issues I have noticed and I'm working on a fix for:
 
-- The module uses Tailwind CSS. It applies Tailwind's CSS reset and exposes utility classes which may cause unexpected styling behavior in your site.
 - The widget doesn't currently work on fully static sites such as ones deployed to GitHub Pages as it requires a server for submitting feedback.
 - The `useFeedbackWidget` composable doesn't detect the `<FeedbackWidget />` component properly.
 
 ## Troubleshooting
+
+Feel free to open an issue if you are not able to resolve an issue.
 
 ### Common Issues
 
@@ -498,6 +501,10 @@ A list of issues I have noticed and I'm working on a fix for:
 - Check your environment variables are set correctly
 - Verify API keys and tokens have proper permissions
 - Check the browser console and server logs for errors
+
+**Multiple widgets appearing:**
+
+- Make sure you only have one `<FeedbackWidget />` component per page. This issue will likely be resolved in a future release.
 
 **Method not found:**
 

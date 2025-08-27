@@ -1,4 +1,8 @@
-.nuxt-feedback-widget {
+.preflight {
+  box-sizing: border-box; /* 1 */
+  margin: 0; /* 2 */
+  padding: 0; /* 2 */
+  border: 0 solid; /* 3 */
   line-height: 1.5; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
   tab-size: 4; /* 3 */
@@ -21,6 +25,8 @@
     normal
   ); /* 6 */
   -webkit-tap-highlight-color: transparent; /* 7 */
+  border-color: var(--border);
+  outline-color: color-mix(in oklab, var(--ring) 50%, transparent);
 
   /*
     1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
@@ -37,6 +43,8 @@
     margin: 0; /* 2 */
     padding: 0; /* 2 */
     border: 0 solid; /* 3 */
+    border-color: var(--border);
+    outline-color: color-mix(in oklab, var(--ring) 50%, transparent);
   }
 
   /*
@@ -226,6 +234,14 @@
   video {
     max-width: 100%;
     height: auto;
+  }
+
+  svg,
+  svg > g {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   /*

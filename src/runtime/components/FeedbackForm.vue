@@ -106,7 +106,7 @@ const submitFeedback = async () => {
 <template>
   <form @submit.prevent="submitFeedback" @change="resetErrors">
     <Select v-if="withTopics" v-model="formState.topic">
-      <SelectTrigger class="w-full">
+      <SelectTrigger class="nfw:w-full">
         <SelectValue placeholder="Select a topic" />
       </SelectTrigger>
       <SelectContent>
@@ -123,13 +123,13 @@ const submitFeedback = async () => {
     <TooltipProvider>
       <RadioGroup
         v-model="formState.reaction"
-        class="flex items-center justify-evenly gap-4 border border-border bg-muted/50 dark:bg-transparent p-4 rounded-md"
+        class="nfw:flex nfw:items-center nfw:justify-evenly nfw:gap-4 nfw:border nfw:border-border nfw:bg-muted/50 nfw:dark:bg-transparent nfw:p-4 nfw:rounded-md"
         name="Feedback Reaction"
       >
         <Tooltip v-for="[id, value] in defaultReactions" :key="id">
           <TooltipTrigger as-child>
             <RadioGroupItem
-              class="aria-checked:border-lime-500 aria-checked:bg-lime-200 dark:aria-checked:bg-lime-900"
+              class="nfw:aria-checked:border-radio-checked-border nfw:aria-checked:bg-radio-checked-background nfw:dark:aria-checked:bg-radio-checked-background"
               :value="value"
               :aria-label="value"
             >
@@ -147,21 +147,21 @@ const submitFeedback = async () => {
 
     <FormValidationMessage :error-message="errors.reaction" />
 
-    <div class="mb-5">
-      <Label class="mb-1.5 text-base font-semibold" for="message"
+    <div class="nfw:mb-5">
+      <Label class="nfw:mb-1.5 nfw:text-base nfw:font-semibold" for="message"
         >Message (Optional)</Label
       >
       <Textarea
         id="message"
         v-model="formState.message"
-        class="h-24 resize-y max-h-48"
+        class="nfw:h-24 nfw:resize-y nfw:max-h-48"
         name="message"
         placeholder="Optional Message..."
       />
     </div>
 
     <Button
-      class="w-full"
+      class="nfw:w-full"
       :disabled="isSubmitting"
       :aria-disabled="isSubmitting"
     >

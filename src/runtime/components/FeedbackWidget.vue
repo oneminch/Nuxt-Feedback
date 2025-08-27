@@ -76,47 +76,54 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <component :is="Modal.Root" v-model:open="isOpen">
-    <component :is="Modal.Trigger" as-child>
-      <Button
-        :class="cn('inline-flex items-center justify-center', triggerClass)"
+  <div class="preflight">
+    <component :is="Modal.Root" v-model:open="isOpen">
+      <component :is="Modal.Trigger" as-child>
+        <Button
+          :class="
+            cn(
+              'nfw:bg-white nfw:hover:bg-neutral-50 nfw:text-neutral-800 nfw:border nfw:border-neutral-200 nfw:shadow-none',
+              triggerClass,
+            )
+          "
+        >
+          {{ triggerLabel }}
+        </Button>
+      </component>
+      <component
+        :is="Modal.Content"
+        class="nfw:sm:max-w-sm nfw:px-2 nfw:*:px-4 nfw:text-zinc-900 nfw:dark:text-zinc-50"
       >
-        {{ triggerLabel }}
-      </Button>
-    </component>
-    <component
-      :is="Modal.Content"
-      class="sm:max-w-sm px-2 *:px-4 text-zinc-900 dark:text-zinc-50"
-    >
-      <template v-if="!isFeedbackSubmitted">
-        <component :is="Modal.Header">
-          <component :is="Modal.Title">{{ title }}</component>
-          <component :is="Modal.Description">
-            {{ description }}
+        <template v-if="!isFeedbackSubmitted">
+          <component :is="Modal.Header">
+            <component :is="Modal.Title">{{ title }}</component>
+            <component :is="Modal.Description">
+              {{ description }}
+            </component>
           </component>
-        </component>
 
-        <FeedbackForm
-          :submit-label="submitLabel"
-          :with-topics="withTopics"
-          :topics="topics"
-          @after-submit="handleAfterSubmit"
-        />
-      </template>
+          <FeedbackForm
+            :submit-label="submitLabel"
+            :with-topics="withTopics"
+            :topics="topics"
+            @after-submit="handleAfterSubmit"
+          />
+        </template>
 
-      <template v-else>
-        <FeedbackStatus
-          v-if="isFeedbackSubmitted"
-          :status="submissionStatus.status"
-          :message="submissionStatus.message"
-        />
-      </template>
+        <template v-else>
+          <FeedbackStatus
+            v-if="isFeedbackSubmitted"
+            :status="submissionStatus.status"
+            :message="submissionStatus.message"
+          />
+        </template>
 
-      <DrawerFooter v-if="!isDesktop" class="pt-2">
-        <DrawerClose as-child>
-          <Button variant="outline"> Close </Button>
-        </DrawerClose>
-      </DrawerFooter>
+        <DrawerFooter v-if="!isDesktop" class="nfw:pt-2">
+          <DrawerClose as-child>
+            <Button variant="outline"> Close </Button>
+          </DrawerClose>
+        </DrawerFooter>
+      </component>
     </component>
-  </component>
+  </div>
 </template>

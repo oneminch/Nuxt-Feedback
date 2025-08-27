@@ -32,6 +32,9 @@ export default defineNuxtModule<ModuleOptions>({
     const resolver = createResolver(import.meta.url);
     const logger = useLogger("feedback-widget");
 
+    nuxt.options.alias["#nuxt-feedback/tailwind"] = resolver.resolve(
+      "./runtime/assets/css/tailwind.css",
+    );
     nuxt.options.alias["#nuxt-feedback"] = resolver.resolve("./runtime");
 
     // Check nitro.options.static in the nitro:init hook
