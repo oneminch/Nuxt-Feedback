@@ -20,7 +20,7 @@ const { openWidget } = useFeedbackWidget();
 
         <FeedbackWidget
           trigger-label="Share Feedback 😊"
-          trigger-class="bg-white hover:bg-neutral-50 text-neutral-800 border border-neutral-300 shadow-none"
+          trigger-class="bg-rose-500 hover:bg-neutral-50 text-neutral-800 border border-neutral-300 shadow-none"
         />
       </div>
       <div class="flex items-center justify-center relative md:col-span-2">

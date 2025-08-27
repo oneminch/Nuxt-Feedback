@@ -1,16 +1,24 @@
-/* @import "tailwindcss"; */
+<script setup lang="ts"></script>
+
+<template>
+  <slot />
+</template>
+
+<style>
+@import "tailwindcss";
+@import "../assets/css/reset.css" layer(base);
 @import "tw-animate-css";
-@source "../../components/";
+/* @source "."; */
 
 /* @layer theme, base, components, utilities;
 
 @import "tailwindcss/theme.css" layer(theme);
-@import "./preflight.css" layer(base);
+@import "tailwindcss/preflight.css" layer(base);
 @import "tailwindcss/utilities.css" layer(utilities); */
 
 @custom-variant dark (&:is(.dark *));
 
-:root {
+:host {
   --ui-primary: var(--ui-color-neutral-100);
   --background: oklch(1 0 0);
   --foreground: oklch(0.141 0.005 285.823);
@@ -131,3 +139,4 @@
     @apply box-border flex items-center justify-center;
   }
 }
+</style>

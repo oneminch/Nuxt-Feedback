@@ -1,6 +1,17 @@
-/* @import "tailwindcss"; */
+<script setup lang="ts"></script>
+
+<template>
+  <Teleport to="body">
+    <div v-if="true" id="widget-portal">
+      <slot />
+    </div>
+  </Teleport>
+</template>
+
+<style>
+@import "tailwindcss";
 @import "tw-animate-css";
-@source "../../components/";
+/* @source "./components/"; */
 
 /* @layer theme, base, components, utilities;
 
@@ -10,7 +21,7 @@
 
 @custom-variant dark (&:is(.dark *));
 
-:root {
+:host {
   --ui-primary: var(--ui-color-neutral-100);
   --background: oklch(1 0 0);
   --foreground: oklch(0.141 0.005 285.823);
@@ -131,3 +142,4 @@
     @apply box-border flex items-center justify-center;
   }
 }
+</style>

@@ -34,6 +34,14 @@ export default defineNuxtModule<ModuleOptions>({
 
     nuxt.options.alias["#nuxt-feedback"] = resolver.resolve("./runtime");
 
+    // vue: {
+    //   compilerOptions: {
+    //     isCustomElement: (tag) => tag.includes("-");
+    //   }
+    // }
+    nuxt.options.vue.compilerOptions.isCustomElement = (tag) =>
+      tag.endsWith("-ce");
+
     // Check nitro.options.static in the nitro:init hook
 
     // const isSSG = !!nuxt.options.nitro?.prerender || nuxt.options.nitro.static;
@@ -50,9 +58,9 @@ export default defineNuxtModule<ModuleOptions>({
 
     await import("@tailwindcss/vite").then((r) => addVitePlugin(r.default));
 
-    nuxt.options.css.push(
-      resolver.resolve("./runtime/assets/css/tailwind.css"),
-    );
+    // nuxt.options.css.push(
+    //   resolver.resolve("./runtime/assets/css/tailwind.css"),
+    // );
 
     addImports({
       name: "default",
@@ -60,9 +68,15 @@ export default defineNuxtModule<ModuleOptions>({
       from: resolver.resolve("./runtime/composables/useFeedbackWidget"),
     });
 
+    // addImports({
+    //   name: "FeedbackWidgetElement",
+    //   as: "FeedbackWidget",
+    //   from: resolver.resolve("./runtime/components/feedback-widget.ce"),
+    // });
+
     addComponent({
       name: "FeedbackWidget",
-      filePath: resolver.resolve("./runtime/components/FeedbackWidget.vue"),
+      filePath: resolver.resolve("./runtime/components/FeedbackWidget.ce.vue"),
     });
 
     if (options.method === "email") {

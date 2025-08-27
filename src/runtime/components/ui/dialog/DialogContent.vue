@@ -14,7 +14,7 @@ import { cn } from "#nuxt-feedback/lib/utils";
 import DialogOverlay from "#nuxt-feedback/components/ui/dialog/DialogOverlay.vue";
 
 const props = defineProps<
-  DialogContentProps & { class?: HTMLAttributes["class"] }
+  DialogContentProps & { class?: HTMLAttributes["class"]; portalTo: string }
 >();
 const emits = defineEmits<DialogContentEmits>();
 
@@ -24,7 +24,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
 </script>
 
 <template>
-  <DialogPortal>
+  <DialogPortal :to="portalTo">
     <DialogOverlay />
     <DialogContent
       data-slot="dialog-content"
