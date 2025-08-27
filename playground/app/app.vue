@@ -1,9 +1,13 @@
 <script setup lang="ts">
+const themeIcon = ref<"🔆" | "🌙">("🌙");
+
 const toggleColorMode = () => {
   if (document.documentElement.classList.contains("dark")) {
     document.documentElement.classList.remove("dark");
+    themeIcon.value = "🌙";
   } else {
     document.documentElement.classList.add("dark");
+    themeIcon.value = "🔆";
   }
 };
 
@@ -18,29 +22,20 @@ useSeoMeta({
 </script>
 
 <template>
-  <div class="w-5/6 h-full absolute inset-0 mx-auto flex flex-col">
-    <header class="flex items-center justify-between">
-      <h1 class="font-bold text-xl">
-        Playground for <span class="text-green-500">Nuxt Feedback</span>
+  <div class="container">
+    <header>
+      <h1>
+        <nuxt-link class="" to="/"
+          >Playground for <span>Nuxt Feedback</span></nuxt-link
+        >
       </h1>
 
-      <nav class="flex items-center gap-6 py-4">
-        <nuxt-link
-          class="underline decoration-dashed decoration-green-400"
-          to="/"
-          >Home</nuxt-link
-        >
-        <nuxt-link
-          class="underline decoration-dashed decoration-green-400"
-          to="/about"
-          >About</nuxt-link
-        >
-
+      <nav>
         <button
-          class="text-sm bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 flex items-center justify-center size-8 rounded-lg cursor-pointer leading-0.5"
+          :class="['btn btn--icon', { 'btn--dark': themeIcon === '🔆' }]"
           @click="toggleColorMode"
         >
-          🔆
+          {{ themeIcon }}
         </button>
       </nav>
     </header>
@@ -50,3 +45,99 @@ useSeoMeta({
     </NuxtLayout>
   </div>
 </template>
+
+<style>
+* {
+  font-family: sans-serif;
+}
+
+:root {
+  --color-logo-green: #38c26b;
+}
+
+#__nuxt {
+  position: absolute;
+  inset: 0;
+  padding: 1rem 2rem;
+  background-color: rgb(245, 245, 245);
+}
+
+.container {
+  max-width: 1024px;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+}
+
+header {
+  display: flex;
+  margin-bottom: 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+a {
+  color: #262626;
+  text-decoration: none;
+}
+
+h1 {
+  font-size: 1.5rem;
+}
+
+h1 span {
+  color: var(--color-logo-green);
+}
+
+.btn {
+  height: 2.25rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+  background-color: #fff;
+  color: #262626;
+  border: 1px solid #ddd;
+  box-shadow: none;
+  &:hover {
+    @media (hover: hover) {
+      background-color: #eee;
+    }
+  }
+}
+
+.btn--primary {
+  background-color: oklch(89.7% 0.196 126.665);
+  color: #262626;
+  border: 1px solid oklch(76.8% 0.233 130.85);
+  box-shadow: none;
+  &:hover {
+    @media (hover: hover) {
+      background-color: oklch(84.1% 0.238 128.85);
+    }
+  }
+}
+
+.btn--icon {
+  width: 2.25rem;
+  height: 2.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.2;
+  border-radius: 50rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+.btn--dark {
+  background-color: #262626;
+  color: #fff;
+  border: 1px solid #3f3f3f;
+  box-shadow: none;
+  &:hover {
+    @media (hover: hover) {
+      background-color: #3f3f3f;
+    }
+  }
+}
+</style>

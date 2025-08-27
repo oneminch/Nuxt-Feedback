@@ -3,40 +3,64 @@ const { openWidget } = useFeedbackWidget();
 </script>
 
 <template>
-  <div class="w-full h-full flex items-center justify-center pb-8">
-    <div
-      class="w-full h-full md:h-5/6 grid grid-rows-2 md:grid-rows-1 md:grid-cols-5 gap-8 *:border-[0.5px] *:border-neutral-200 *:bg-neutral-50 *:p-10 *:rounded-2xl"
-    >
-      <div
-        class="flex flex-col items-center justify-center gap-8 md:col-span-3"
-      >
-        <img src="/logo.svg" alt="Widget Logo" class="size-16" />
+  <div class="content">
+    <img src="/logo.svg" alt="Widget Logo" class="" />
 
-        <h2
-          class="text-3xl max-w-4/5 text-neutral-700 font-semibold text-center"
-        >
-          Help Us Improve By Sharing Your Feedback.
-        </h2>
+    <h2 class="">Help Us Improve By Sharing Your Feedback.</h2>
 
-        <FeedbackWidget
-          trigger-label="Share Feedback 😊"
-          trigger-class="bg-white hover:bg-neutral-50 text-neutral-800 border border-neutral-300 shadow-none"
-        />
-      </div>
-      <div class="flex items-center justify-center relative md:col-span-2">
-        <h2
-          class="text-xl max-w-4/5 text-neutral-700 font-semibold text-center"
-        >
-          Help Us Improve By Sharing Your Feedback.
-        </h2>
-
-        <button
-          class="cursor-pointer absolute bottom-2 right-2 rounded-xl size-12 text-xl inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*=\'size-\'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-foreground text-primary-foreground shadow-xs hover:bg-foreground/90"
-          @click="openWidget"
-        >
-          😊
-        </button>
-      </div>
+    <div class="buttons">
+      <FeedbackWidget
+        trigger-label="💚 Share Feedback (Component)"
+        trigger-class="btn"
+      />
+      <!-- <FeedbackWidget
+        trigger-label="💚 Share Feedback (Without Topics)"
+        :with-topics="false"
+      /> -->
+      <button class="btn" @click="openWidget">
+        💚 Share Feedback (Composable)
+      </button>
     </div>
   </div>
 </template>
+
+<style scoped>
+.content * {
+  text-align: center;
+}
+
+.content {
+  height: 75%;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 3rem;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  border-radius: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+h2 {
+  font-size: 1.75rem;
+}
+
+.content .buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+img {
+  width: 8rem;
+  height: 8rem;
+  display: block;
+  object-fit: contain;
+  margin: 0 auto;
+}
+</style>
