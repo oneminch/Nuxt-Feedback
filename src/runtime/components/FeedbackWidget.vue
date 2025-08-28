@@ -76,9 +76,9 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="preflight">
-    <component :is="Modal.Root" v-model:open="isOpen">
-      <component :is="Modal.Trigger" as-child>
+  <component :is="Modal.Root" v-model:open="isOpen">
+    <component :is="Modal.Trigger" as-child>
+      <div class="preflight">
         <Button
           :class="
             cn(
@@ -89,41 +89,41 @@ onUnmounted(() => {
         >
           {{ triggerLabel }}
         </Button>
-      </component>
-      <component
-        :is="Modal.Content"
-        class="nfw:sm:max-w-sm nfw:px-2 nfw:*:px-4 nfw:text-zinc-900 nfw:dark:text-zinc-50"
-      >
-        <template v-if="!isFeedbackSubmitted">
-          <component :is="Modal.Header">
-            <component :is="Modal.Title">{{ title }}</component>
-            <component :is="Modal.Description">
-              {{ description }}
-            </component>
-          </component>
-
-          <FeedbackForm
-            :submit-label="submitLabel"
-            :with-topics="withTopics"
-            :topics="topics"
-            @after-submit="handleAfterSubmit"
-          />
-        </template>
-
-        <template v-else>
-          <FeedbackStatus
-            v-if="isFeedbackSubmitted"
-            :status="submissionStatus.status"
-            :message="submissionStatus.message"
-          />
-        </template>
-
-        <DrawerFooter v-if="!isDesktop" class="nfw:pt-2">
-          <DrawerClose as-child>
-            <Button variant="outline"> Close </Button>
-          </DrawerClose>
-        </DrawerFooter>
-      </component>
+      </div>
     </component>
-  </div>
+    <component
+      :is="Modal.Content"
+      class="nfw:sm:max-w-sm nfw:px-2 nfw:*:px-4 nfw:text-zinc-900 nfw:dark:text-zinc-50"
+    >
+      <template v-if="!isFeedbackSubmitted">
+        <component :is="Modal.Header">
+          <component :is="Modal.Title">{{ title }}</component>
+          <component :is="Modal.Description">
+            {{ description }}
+          </component>
+        </component>
+
+        <FeedbackForm
+          :submit-label="submitLabel"
+          :with-topics="withTopics"
+          :topics="topics"
+          @after-submit="handleAfterSubmit"
+        />
+      </template>
+
+      <template v-else>
+        <FeedbackStatus
+          v-if="isFeedbackSubmitted"
+          :status="submissionStatus.status"
+          :message="submissionStatus.message"
+        />
+      </template>
+
+      <DrawerFooter v-if="!isDesktop" class="nfw:pt-2">
+        <DrawerClose as-child>
+          <Button variant="outline"> Close </Button>
+        </DrawerClose>
+      </DrawerFooter>
+    </component>
+  </component>
 </template>
