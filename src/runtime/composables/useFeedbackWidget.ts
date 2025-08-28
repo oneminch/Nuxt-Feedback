@@ -1,5 +1,5 @@
 import { readonly, useState } from "#imports";
-import type { UseFeedbackWidget } from "../../types";
+import type { UseFeedbackWidget } from "../types";
 
 const useFeedbackWidget = (): UseFeedbackWidget => {
   const isWidgetMounted = useState("feedback-widget-mounted", () => false);
@@ -8,7 +8,7 @@ const useFeedbackWidget = (): UseFeedbackWidget => {
   const closeWidget = () => {
     if (!isWidgetMounted.value) {
       console.warn(
-        "Widget component is not detected. Make sure to include <FeedbackWidget /> in your layout, page, or component.",
+        "Widget component is not detected. Make sure to include <FeedbackWidget /> in your layout, page, or component."
       );
       return;
     }
@@ -19,7 +19,7 @@ const useFeedbackWidget = (): UseFeedbackWidget => {
   const openWidget = () => {
     if (!isWidgetMounted.value) {
       console.warn(
-        "Widget component is not detected. Make sure to include <FeedbackWidget /> in your layout, page, or component.",
+        "Widget component is not detected. Make sure to include <FeedbackWidget /> in your layout, page, or component."
       );
       return;
     }

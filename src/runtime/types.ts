@@ -4,7 +4,7 @@ import type {
   RouteRecordNameGeneric,
   RouteLocationGeneric,
 } from "#vue-router";
-import type { Reactions } from "#nuxt-feedback/lib/defaults";
+import type { Reactions } from "#nuxt-feedback/utils";
 
 export interface FeedbackUIProps {
   title?: string;

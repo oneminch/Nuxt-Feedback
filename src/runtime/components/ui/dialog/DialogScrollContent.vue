@@ -11,7 +11,7 @@ import {
   DialogPortal,
   useForwardPropsEmits,
 } from "reka-ui";
-import { cn } from "#nuxt-feedback/lib/utils";
+import { cn } from "#nuxt-feedback/utils";
 
 const props = defineProps<
   DialogContentProps & { class?: HTMLAttributes["class"] }
@@ -33,7 +33,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
           cn(
             'preflight',
             'nfw:relative nfw:z-50 nfw:grid nfw:w-full nfw:max-w-lg nfw:my-8 nfw:gap-4 nfw:border nfw:border-border nfw:bg-background nfw:p-6 nfw:shadow-lg nfw:duration-200 nfw:sm:rounded-lg nfw:md:w-full',
-            props.class,
+            props.class
           )
         "
         v-bind="forwarded"

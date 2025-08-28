@@ -2,7 +2,7 @@
 import type { HTMLAttributes } from "vue";
 import { reactiveOmit } from "@vueuse/core";
 import { DialogTitle, type DialogTitleProps, useForwardProps } from "reka-ui";
-import { cn } from "#nuxt-feedback/lib/utils";
+import { cn } from "#nuxt-feedback/utils";
 
 const props = defineProps<
   DialogTitleProps & { class?: HTMLAttributes["class"] }
@@ -20,7 +20,7 @@ const forwardedProps = useForwardProps(delegatedProps);
     :class="
       cn(
         'nfw:text-foreground nfw:text-lg nfw:leading-none nfw:font-semibold',
-        props.class,
+        props.class
       )
     "
   >

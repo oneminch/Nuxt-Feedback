@@ -4,7 +4,7 @@ import {
   readBody,
   useRuntimeConfig,
 } from "#imports";
-import type { FeedbackData } from "../../../../types";
+import type { FeedbackData } from "../../../types";
 import { generateFeedbackEmailHtml, logger } from "#nuxt-feedback/lib/utils";
 import { Resend } from "resend";
 

@@ -18,9 +18,9 @@ import {
   DrawerTrigger,
 } from "#nuxt-feedback/components/ui/drawer";
 import { Button } from "#nuxt-feedback/components/ui/button";
-import { cn } from "#nuxt-feedback/lib/utils";
+import { cn } from "#nuxt-feedback/utils";
 import { computed, onMounted, onUnmounted, ref, watch } from "#imports";
-import type { FeedbackUIProps, SubmissionStatus } from "../../types";
+import type { FeedbackUIProps, SubmissionStatus } from "../types";
 import FeedbackForm from "#nuxt-feedback/components/FeedbackForm.vue";
 import FeedbackStatus from "#nuxt-feedback/components/FeedbackStatus.vue";
 import useFeedbackWidget from "#nuxt-feedback/composables/useFeedbackWidget";
@@ -83,7 +83,7 @@ onUnmounted(() => {
           :class="
             cn(
               'nfw:bg-white nfw:hover:bg-neutral-50 nfw:text-neutral-800 nfw:border nfw:border-neutral-200 nfw:shadow-none',
-              triggerClass,
+              triggerClass
             )
           "
         >

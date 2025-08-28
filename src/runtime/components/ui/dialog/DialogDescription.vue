@@ -6,7 +6,7 @@ import {
   type DialogDescriptionProps,
   useForwardProps,
 } from "reka-ui";
-import { cn } from "#nuxt-feedback/lib/utils";
+import { cn } from "#nuxt-feedback/utils";
 
 const props = defineProps<
   DialogDescriptionProps & { class?: HTMLAttributes["class"] }

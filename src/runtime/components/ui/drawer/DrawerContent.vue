@@ -3,7 +3,7 @@ import type { DialogContentEmits, DialogContentProps } from "reka-ui";
 import type { HTMLAttributes } from "vue";
 import { useForwardPropsEmits } from "reka-ui";
 import { DrawerContent, DrawerPortal } from "vaul-vue";
-import { cn } from "#nuxt-feedback/lib/utils";
+import { cn } from "#nuxt-feedback/utils";
 import DrawerOverlay from "./DrawerOverlay.vue";
 
 const props = defineProps<
@@ -28,7 +28,7 @@ const forwarded = useForwardPropsEmits(props, emits);
           `nfw:data-[vaul-drawer-direction=bottom]:inset-x-0 nfw:data-[vaul-drawer-direction=bottom]:bottom-0 nfw:data-[vaul-drawer-direction=bottom]:mt-24 nfw:data-[vaul-drawer-direction=bottom]:max-h-[80vh] nfw:data-[vaul-drawer-direction=bottom]:rounded-t-lg`,
           `nfw:data-[vaul-drawer-direction=right]:inset-y-0 nfw:data-[vaul-drawer-direction=right]:right-0 nfw:data-[vaul-drawer-direction=right]:w-3/4 nfw:data-[vaul-drawer-direction=right]:sm:max-w-sm`,
           `nfw:data-[vaul-drawer-direction=left]:inset-y-0 nfw:data-[vaul-drawer-direction=left]:left-0 nfw:data-[vaul-drawer-direction=left]:w-3/4 nfw:data-[vaul-drawer-direction=left]:sm:max-w-sm`,
-          props.class,
+          props.class
         )
       "
     >

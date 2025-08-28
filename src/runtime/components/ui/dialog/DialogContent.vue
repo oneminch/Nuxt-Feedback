@@ -10,7 +10,7 @@ import {
   DialogPortal,
   useForwardPropsEmits,
 } from "reka-ui";
-import { cn } from "#nuxt-feedback/lib/utils";
+import { cn } from "#nuxt-feedback/utils";
 import DialogOverlay from "#nuxt-feedback/components/ui/dialog/DialogOverlay.vue";
 
 const props = defineProps<
@@ -33,7 +33,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
         cn(
           'preflight',
           'nfw:bg-background nfw:data-[state=open]:animate-in nfw:data-[state=closed]:animate-out nfw:data-[state=closed]:fade-out-0 nfw:data-[state=open]:fade-in-0 nfw:data-[state=closed]:zoom-out-95 nfw:data-[state=open]:zoom-in-95 nfw:fixed nfw:top-[50%] nfw:left-[50%] nfw:z-50 nfw:grid nfw:w-full nfw:max-w-[calc(100%-2rem)] nfw:translate-x-[-50%] nfw:translate-y-[-50%] nfw:gap-4 nfw:rounded-lg nfw:border nfw:p-4 nfw:shadow-lg nfw:duration-200 nfw:sm:max-w-lg',
-          props.class,
+          props.class
         )
       "
     >

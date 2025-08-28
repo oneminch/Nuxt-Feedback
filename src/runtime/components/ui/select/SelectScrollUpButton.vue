@@ -7,7 +7,7 @@ import {
   type SelectScrollUpButtonProps,
   useForwardProps,
 } from "reka-ui";
-import { cn } from "#nuxt-feedback/lib/utils";
+import { cn } from "#nuxt-feedback/utils";
 
 const props = defineProps<
   SelectScrollUpButtonProps & { class?: HTMLAttributes["class"] }
@@ -25,7 +25,7 @@ const forwardedProps = useForwardProps(delegatedProps);
     :class="
       cn(
         'nfw:flex nfw:cursor-default nfw:items-center nfw:justify-center nfw:py-1',
-        props.class,
+        props.class
       )
     "
   >

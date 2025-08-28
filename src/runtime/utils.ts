@@ -1,12 +1,21 @@
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
-import type { FeedbackData, FeedbackFormState } from "../../types";
+import type { FeedbackData, FeedbackFormState } from "./types";
 import type { RouteLocationNormalizedLoadedGeneric } from "#vue-router";
 import DOMPurify from "isomorphic-dompurify";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
+
+export const defaultReactions = [
+  ["love-it", "Love it!"],
+  ["its-okay", "It's okay."],
+  ["not-great", "Not great."],
+  ["hate-it", "Hate it!"],
+] as const;
+
+export type Reactions = typeof defaultReactions;
 
 export const logger = {
   error: (...args: unknown[]) => console.error("[Feedback Widget]", ...args),
@@ -17,7 +26,7 @@ export const logger = {
 
 export const createFormData = (
   route: RouteLocationNormalizedLoadedGeneric,
-  formState: FeedbackFormState,
+  formState: FeedbackFormState
 ): FeedbackData => {
   return {
     metadata: {
@@ -67,7 +76,7 @@ export function sanitizeUserInput(input: string, maxLength?: number): string {
 
 export function generateFeedbackEmailHtml(
   data: FeedbackData,
-  options?: { showRawJson?: boolean },
+  options?: { showRawJson?: boolean }
 ): string {
   const { topic, reaction, message, metadata } = data;
   const { route, time } = metadata;
@@ -109,8 +118,14 @@ export function generateFeedbackEmailHtml(
               <div><b>Full Path:</b> ${route.fullPath}</div>
               <div><b>Name:</b> ${route.name?.toString() ?? ""}</div>
               <div><b>Hash:</b> ${route.hash || "N/A"}</div>
-              <div><b>Redirected From:</b> ${route.redirectedFrom ? JSON.stringify(route.redirectedFrom) : "N/A"}</div>
-              <div><b>Query:</b> <code>${JSON.stringify(route.query)}</code></div>
+              <div><b>Redirected From:</b> ${
+                route.redirectedFrom
+                  ? JSON.stringify(route.redirectedFrom)
+                  : "N/A"
+              }</div>
+              <div><b>Query:</b> <code>${JSON.stringify(
+                route.query
+              )}</code></div>
             </td>
           </tr>
           <tr>
@@ -134,7 +149,7 @@ export function generateFeedbackEmailHtml(
 }
 
 export function generateFeedbackGitHubIssueMarkdown(
-  data: FeedbackData,
+  data: FeedbackData
 ): string {
   const { topic, reaction, message, metadata } = data;
   const { route, time } = metadata;
@@ -163,7 +178,9 @@ export function generateFeedbackGitHubIssueMarkdown(
 | **Full Path**      | ${route.fullPath} |
 | **Name**           | ${route.name?.toString() ?? "N/A"} |
 | **Hash**           | ${route.hash || "N/A"} |
-| **Redirected From**| ${route.redirectedFrom ? `\`${JSON.stringify(route.redirectedFrom)}\`` : "N/A"} |
+| **Redirected From**| ${
+    route.redirectedFrom ? `\`${JSON.stringify(route.redirectedFrom)}\`` : "N/A"
+  } |
 | **Query**          | \`${JSON.stringify(route.query)}\` |
 
 ---

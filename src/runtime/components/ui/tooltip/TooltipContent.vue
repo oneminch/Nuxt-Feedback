@@ -8,7 +8,7 @@ import {
   TooltipPortal,
   useForwardPropsEmits,
 } from "reka-ui";
-import { cn } from "#nuxt-feedback/lib/utils";
+import { cn } from "#nuxt-feedback/utils";
 
 defineOptions({
   inheritAttrs: false,
@@ -19,7 +19,7 @@ const props = withDefaults(
   {
     class: "",
     sideOffset: 4,
-  },
+  }
 );
 
 const emits = defineEmits<TooltipContentEmits>();
@@ -37,7 +37,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
         cn(
           'preflight',
           'nfw:bg-primary nfw:text-primary-foreground nfw:animate-in nfw:fade-in-0 nfw:zoom-in-95 nfw:data-[state=closed]:animate-out nfw:data-[state=closed]:fade-out-0 nfw:data-[state=closed]:zoom-out-95 nfw:data-[side=bottom]:slide-in-from-top-2 nfw:data-[side=left]:slide-in-from-right-2 nfw:data-[side=right]:slide-in-from-left-2 nfw:data-[side=top]:slide-in-from-bottom-2 nfw:z-50 nfw:w-fit nfw:rounded-md nfw:px-3 nfw:py-1.5 nfw:text-xs nfw:text-balance',
-          props.class,
+          props.class
         )
       "
     >

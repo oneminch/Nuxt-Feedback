@@ -16,7 +16,7 @@ export interface ModuleOptions {
   customEndpoint?: string;
 }
 
-export type * from "./types";
+export type * from "./runtime/types";
 
 export default defineNuxtModule<ModuleOptions>({
   meta: {
@@ -52,11 +52,9 @@ export default defineNuxtModule<ModuleOptions>({
       logger.warn("[Feedback Widget]: Please Pick a Default Feedback Method.");
     }
 
-    await import("@tailwindcss/vite").then((r) => addVitePlugin(r.default));
+    // await import("@tailwindcss/vite").then((r) => addVitePlugin(r.default));
 
-    nuxt.options.css.push(
-      resolver.resolve("./runtime/assets/css/tailwind.css"),
-    );
+    nuxt.options.css.push(resolver.resolve("./runtime/assets/css/base.css"));
 
     addImports({
       name: "default",
@@ -68,6 +66,7 @@ export default defineNuxtModule<ModuleOptions>({
       name: "FeedbackWidget",
       filePath: resolver.resolve("./runtime/components/FeedbackWidget.vue"),
       mode: "client",
+      island: true,
     });
 
     if (options.method === "email") {
@@ -104,7 +103,7 @@ export default defineNuxtModule<ModuleOptions>({
       {
         siteName: options.siteName,
         customEndpoint: options.customEndpoint,
-      },
+      }
     );
   },
 });

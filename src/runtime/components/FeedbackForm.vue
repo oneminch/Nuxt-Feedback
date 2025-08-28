@@ -22,10 +22,9 @@ import {
   RadioGroupItem,
 } from "#nuxt-feedback/components/ui/radio-group";
 import FormValidationMessage from "#nuxt-feedback/components/FormValidationMessage.vue";
-import type { FeedbackUIProps, FeedbackFormState } from "../../types";
-import { defaultReactions } from "#nuxt-feedback/lib/defaults";
+import type { FeedbackUIProps, FeedbackFormState } from "../types";
 import Emoji from "#nuxt-feedback/components/icons/Emoji.vue";
-import { createFormData } from "#nuxt-feedback/lib/utils";
+import { createFormData, defaultReactions } from "#nuxt-feedback/utils";
 
 const formProps =
   defineProps<Pick<FeedbackUIProps, "submitLabel" | "withTopics" | "topics">>();
@@ -86,7 +85,7 @@ const submitFeedback = async () => {
       "failure",
       error instanceof Error
         ? error.message
-        : "Unknown error. Please try again later.",
+        : "Unknown error. Please try again later."
     );
   } finally {
     // Reset form state after submission

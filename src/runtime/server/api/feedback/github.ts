@@ -8,7 +8,7 @@ import {
   generateFeedbackGitHubIssueMarkdown,
   logger,
 } from "#nuxt-feedback/lib/utils";
-import type { FeedbackData } from "../../../../types";
+import type { FeedbackData } from "../../../types";
 
 export default defineEventHandler(async (event) => {
   const {
@@ -69,7 +69,7 @@ export default defineEventHandler(async (event) => {
             message: "A server error occurred while submitting feedback.",
           });
         },
-      },
+      }
     );
 
     return {

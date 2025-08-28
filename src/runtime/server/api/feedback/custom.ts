@@ -4,8 +4,8 @@ import {
   readBody,
   useRuntimeConfig,
 } from "#imports";
-import { logger } from "#nuxt-feedback/lib/utils";
-import type { FeedbackData } from "../../../../types";
+import { logger } from "#nuxt-feedback/utils";
+import type { FeedbackData } from "../../../types";
 
 export default defineEventHandler(async (event) => {
   const {

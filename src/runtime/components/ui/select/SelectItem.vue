@@ -9,7 +9,7 @@ import {
   SelectItemText,
   useForwardProps,
 } from "reka-ui";
-import { cn } from "#nuxt-feedback/lib/utils";
+import { cn } from "#nuxt-feedback/utils";
 
 const props = defineProps<
   SelectItemProps & { class?: HTMLAttributes["class"] }
@@ -27,7 +27,7 @@ const forwardedProps = useForwardProps(delegatedProps);
     :class="
       cn(
         `nfw:focus:bg-accent nfw:focus:text-accent-foreground nfw:[&_svg:not([class*='nfw:text-'])]:text-muted-foreground nfw:relative nfw:flex nfw:w-full nfw:cursor-default nfw:items-center nfw:gap-2 nfw:rounded-sm nfw:py-1.5 nfw:pr-8 nfw:pl-2 nfw:text-sm nfw:outline-hidden nfw:select-none nfw:data-[disabled]:pointer-events-none nfw:data-[disabled]:opacity-50 nfw:[&_svg]:pointer-events-none nfw:[&_svg]:shrink-0 nfw:[&_svg:not([class*='nfw:size-'])]:size-4 nfw:*:[span]:last:flex nfw:*:[span]:last:items-center nfw:*:[span]:last:gap-2`,
-        props.class,
+        props.class
       )
     "
   >
