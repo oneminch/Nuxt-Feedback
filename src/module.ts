@@ -32,10 +32,11 @@ export default defineNuxtModule<ModuleOptions>({
     const resolver = createResolver(import.meta.url);
     const logger = useLogger("feedback-widget");
 
-    nuxt.options.alias["#nuxt-feedback/tailwind"] = resolver.resolve(
-      "./runtime/assets/css/tailwind.css",
-    );
     nuxt.options.alias["#nuxt-feedback"] = resolver.resolve("./runtime");
+
+    // nuxt.options.alias["#nuxt-feedback/tailwind"] = resolver.resolve(
+    //   "./runtime/assets/css/tailwind.css",
+    // );
 
     // Check nitro.options.static in the nitro:init hook
 
@@ -65,7 +66,9 @@ export default defineNuxtModule<ModuleOptions>({
 
     addComponent({
       name: "FeedbackWidget",
-      filePath: resolver.resolve("./runtime/components/FeedbackWidget.vue"),
+      filePath: resolver.resolve(
+        "./runtime/components/FeedbackWidget.client.vue",
+      ),
     });
 
     if (options.method === "email") {

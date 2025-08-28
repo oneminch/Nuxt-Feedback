@@ -1,6 +1,6 @@
 {
   "name": "@minch/nuxt-feedback",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "description": "Easily integrate a feedback widget into your Nuxt app.",
   "repository": "oneminch/Nuxt-Feedback",
   "homepage": "https://github.com/oneminch/Nuxt-Feedback/#readme",
@@ -54,7 +54,7 @@
     "clsx": "^2.1.1",
     "defu": "^6.1.4",
     "isomorphic-dompurify": "^2.26.0",
-    "lucide-vue-next": "^0.539.0",
+    "lucide-vue-next": "^0.542.0",
     "reka-ui": "^2.5.0",
     "resend": "^6.0.1",
     "tailwind-merge": "^3.3.1",
@@ -64,7 +64,7 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "^2.6.3",
-    "@nuxt/eslint": "1.8.0",
+    "@nuxt/eslint": "1.9.0",
     "@nuxt/eslint-config": "^1.9.0",
     "@nuxt/module-builder": "^1.0.2",
     "@nuxt/schema": "^4.0.3",
