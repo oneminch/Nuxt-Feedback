@@ -52,9 +52,11 @@ export default defineNuxtModule<ModuleOptions>({
       logger.warn("[Feedback Widget]: Please Pick a Default Feedback Method.");
     }
 
-    // await import("@tailwindcss/vite").then((r) => addVitePlugin(r.default));
+    await import("@tailwindcss/vite").then((r) => addVitePlugin(r.default));
 
-    nuxt.options.css.push(resolver.resolve("./runtime/assets/css/base.css"));
+    nuxt.options.css.push(
+      resolver.resolve("./runtime/assets/css/tailwind.css")
+    );
 
     addImports({
       name: "default",
@@ -65,8 +67,6 @@ export default defineNuxtModule<ModuleOptions>({
     addComponent({
       name: "FeedbackWidget",
       filePath: resolver.resolve("./runtime/components/FeedbackWidget.vue"),
-      mode: "client",
-      island: true,
     });
 
     if (options.method === "email") {
