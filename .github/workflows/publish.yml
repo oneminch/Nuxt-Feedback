@@ -27,6 +27,12 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      - name: Prepare module
+        run: pnpm run dev:prepare
+
+      - name: Build module
+        run: pnpm run prepack
+
       - name: Upgrade npm to latest version
         run: npm install -g npm@latest
 
