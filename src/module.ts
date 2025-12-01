@@ -23,7 +23,7 @@ export default defineNuxtModule<ModuleOptions>({
     name,
     version,
     configKey: "feedbackWidget",
-    docs: "https://github.com/oneminch/Nuxt-Feedback/#readme",
+    docs: "https://github.com/oneminch/nuxt-feedback/#readme",
   },
   defaults: {
     siteName: "Your Nuxt App",
