@@ -12,9 +12,9 @@
   "aliases": {
     "components": "@/src/runtime/components",
     "composables": "@/src/runtime/composables",
-    "utils": "@/src/runtime/lib/utils",
+    "utils": "@/src/runtime/utils",
     "ui": "@/src/runtime/components/ui",
-    "lib": "@/src/runtime/lib"
+    "lib": "@/src/runtime/"
   },
   "iconLibrary": "lucide"
 }
