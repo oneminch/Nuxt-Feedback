@@ -1,40 +1,14 @@
 name: Publish to NPM
 
 on:
+  workflow_dispatch:
   push:
     tags:
       - 'v*'
 
 jobs:
   publish:
-    runs-on: ubuntu-latest
     permissions:
-      contents: write
+      contents: read
       id-token: write
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: "22"
-          registry-url: "https://registry.npmjs.org"
-
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
-
-      - name: Install dependencies
-        run: pnpm install
-
-      - name: Prepare module
-        run: pnpm run dev:prepare
-
-      - name: Build module
-        run: pnpm run prepack
-
-      - name: Upgrade npm to latest version
-        run: npm install -g npm@latest
-
-      - name: Publish to NPM
-        run: npm publish # pnpm fails 
+    uses: oneminch/workflows/.github/workflows/npm-publish.yml@v1
