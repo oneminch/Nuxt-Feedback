@@ -41,6 +41,7 @@
   "scripts": {
     "build:css": "pnpm dlx @tailwindcss/cli -i src/runtime/assets/css/tailwind.css -o src/runtime/assets/css/base.css --minify",
     "prepack": "nuxt-module-build build",
+    "postinstall": "nuxt prepare",
     "dev": "nuxt dev playground",
     "dev:build": "nuxt build playground",
     "dev:preview": "nuxt preview playground",
@@ -82,5 +83,5 @@
     "vitest": "^3.2.4",
     "vue-tsc": "^2.2.12"
   },
-  "packageManager": "pnpm@10.20.0"
+  "packageManager": "pnpm@10.25.0"
 }
