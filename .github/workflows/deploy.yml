@@ -15,4 +15,3 @@ jobs:
     with:
       working-directory: './playground'
       artifact-path: './playground/.output/public'
-      skip-dependabot-prs: true
